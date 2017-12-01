@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>widgetbrain</title>
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+</head>
+<body>
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <br>
+                <h1>WidgetBrain Technical Assessment</h1>
+                <br>
+            </div>
+        </div>
+
+        <div class="row" style="margin-bottom: 25px;">
+            <div class="col-lg-12">
+                <div style="background-image: url('https://static.pexels.com/photos/210583/pexels-photo-210583.jpeg');width: inherit;height: 200px;"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                {% if value == 'cleared' %}
+                    <h4>All Data has been cleared</h4>
+                {% else %}
+                    <h4>Random Jokes</h4>
+                    <p>{{ value }}</p>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="row" style="margin-top: 25px;">
+            <div class="col-lg-3">
+                <p><a class="btn btn-primary" href="{{ url_for('getJokes') }}">Get Jokes!</a></p>
+            </div>
+            <div class="col-lg-3">
+                <p><a class="btn btn-danger" href="{{ url_for('flushJokes') }}">Flush Jokes!</a></p>
+            </div>
+            <div class="col-lg-3">
+                <p><a class="btn btn-info" href="{{ url_for('getNewJokes') }}">Get New Joke!</a></p>
+            </div>
+            <div class="col-lg-3">
+                <p><a class="btn btn-warning" href="{{ url_for('index') }}">Reload HomePage!</a></p>
+            </div>
+        </div>
+        <h4>{{ ext }}</h4>
+        {% if mylist.__len__() > 0 %}
+            <div class="row">
+            <div class="col-lg-12">
+                <h4>{{ title }}</h4>
+                <ol>
+                    {% for i in mylist %}
+                        <li>{{ i }} </li>
+                    {% endfor %}
+                </ol>
+            </div>
+            </div>
+        {% endif %}
+
+        <hr style="margin-top: 50px;">
+
+        <footer class="footer">
+            <span style="font-size: 8pt;">&copy; Solution developed by Mohammad Harith Mohd Tarik</span>
+        </footer>
+
+    </div>
+</body>
+
+</html>
